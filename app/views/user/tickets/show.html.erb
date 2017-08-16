@@ -1,0 +1,16 @@
+<div class="col-lg-9">
+  <table class="table">
+    <tr>
+      <th>Titulo</th><td><%=@ticket.title%></td>
+    </tr>
+    <tr>
+      <th>Descripcion</th><td><%=@ticket.description%></td>
+    </tr>
+    <tr>
+      <th>Estado</th><td><%=status_name @ticket.status%></td>
+    </tr>
+  </table>
+  <%unless @ticket.finished? && @ticket.assigned?%>
+    <%=link_to "Editar", edit_user_ticket_path(@ticket), class: "btn btn-info"%>
+  <%end%>
+</div>

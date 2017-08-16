@@ -1,0 +1,9 @@
+<div class="col-lg-8">
+  <h1>Seguro deseas Tener Ayudar a este Usuario?</h1>
+  <%=form_for @ticket do |f|%>
+    <center>
+      <%=f.submit "SI!", class: "btn btn-primary"%>
+      <%= link_to "NO!", tickets_path, class: "btn btn-default"%>
+    </center>
+  <%end%>
+</div>

@@ -1,0 +1,33 @@
+<table class="table">
+    <tr>
+      <th>Creador:</th><td><%=@ticket.user.name%></td>
+    </tr>
+    <tr>
+      <th>Titulo:</th><td><%=@ticket.title%></td>
+    </tr>
+    <tr>
+      <th>Descripcion:</th><td><%=@ticket.description%></td>
+    </tr>
+    <tr>
+      <th>Estado:</th><td><%=status_name @ticket.status%></td>
+    </tr>
+    <%if @ticket.assigned?%>
+      <tr>
+        <th>Tomado Por:</th><td><%=User.find(@ticket.user_assigned).name%></td>
+      </tr>
+      <tr>
+        <th></th><td><%=link_to "Volver", tickets_path, class: "btn btn-default"%></td>
+      </tr>
+    <%elsif @ticket.finished?%>
+      <tr>
+        <th></th><td><%=link_to "Volver", tickets_path, class: "btn btn-default"%></td>
+      </tr>
+    <%else%>
+      <tr>
+        <th></th>
+        <td><%=link_to "Tomar", edit_ticket_path(@ticket), class: "btn btn-primary"%></td>
+        <td><%=link_to "Volver", tickets_path, class: "btn btn-default"%></td>
+      </tr>
+    <%end%>
+
+</table>

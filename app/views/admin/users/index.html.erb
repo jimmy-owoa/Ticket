@@ -1,0 +1,36 @@
+<div class="col-lg-6">
+  <h1>Todos los Usuarios</h1>
+  <table class="table">
+    <tr>
+      <th>ID</th><th>Nombre</th><th>Correo</th><th>Permisos</th><th></th>
+    </tr>
+    <%@users.each do |user|%>
+      <tr>
+        <td>
+          <%=user.id%>
+        </td>
+        <td>
+          <%=user.name%>
+        </td>
+        <td>
+          <%=user.email%>
+        </td>
+        <td>
+          <%=permission user.permission_level%>
+        </td>
+        <%if user.user?%>
+          <td><%=link_to "Hacer Moderador", edit_admin_user_path(user), class: "btn btn-info"%></td>
+          <td><%=link_to "Eliminar", admin_user_path(user),method: :delete, class: "btn btn-warning"%></td>
+        <%elsif user.moderator?%>
+          <td><%=link_to "Hacer Admin", edit_admin_user_path(user), class: "btn btn-info"%></td>
+          <td><%=link_to "Eliminar", admin_user_path(user),method: :delete, class: "btn btn-warning"%></td>
+
+        <%else%>
+          <td><%=link_to "Eliminar", admin_user_path(user),method: :delete, class: "btn btn-warning"%></td>
+        <%end%>
+      </tr>
+    <%end%>
+  </table>
+  <%=link_to "Nuevo Usuario", new_user_registration_path, class: "btn btn-success"%>
+
+</div>

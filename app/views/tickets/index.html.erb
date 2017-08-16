@@ -1,0 +1,18 @@
+<h1>Todos los Tickets</h1>
+
+<%@tickets.each do |ticket|%>
+  <table class="table">
+    <tr>
+      <th>Titulo</th><td><%=link_to ticket.title, ticket_path(ticket)%></td>
+    </tr>
+    <tr>
+      <th>Estado</th><td><%=status_name ticket.status%></td>
+    </tr>
+    <tr>
+      <th>Creador</th><td><%=ticket.user.name%></td>
+    </tr>
+    <tr>
+
+    </tr>
+  </table>
+<%end%>

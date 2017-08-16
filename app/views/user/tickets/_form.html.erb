@@ -1,0 +1,15 @@
+<%=form_for @ticket do |f|%>
+  <div class="form-group">
+    <%=f.label :title %><br>
+    <%=f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%=f.label :description %><br>
+    <%=f.text_area :description, class: "form-control", rows: "5"%>
+  </div>
+  <div class="">
+    <%=f.submit%>
+    <%=link_to "Cancelar", root_path, class: "btn"%>
+  </div>
+
+<%end%>

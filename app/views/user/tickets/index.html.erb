@@ -1,0 +1,20 @@
+<div class="col-lg-9">
+  <h1>Mis tickets</h1>
+  <table class="table table-striped">
+    <tr>
+      <th>Titulo</th><th>Estado</th><th>Fecha Creacion</th><th></th><th></th>
+    </tr>
+    <%@tickets.each do |ticket|%>
+      <tr>
+        <td><%=link_to ticket.title, user_ticket_path(ticket)%></td>
+        <td><%=status_name(ticket.status)%></td>
+        <td><%=ticket.created_at%></td>
+        <%unless ticket.finished?%>
+          <td><%=button_to "Finalizar", finish_user_ticket_path(ticket), class: "btn btn-warning"%></td>
+        <%end%>
+        <td><%=link_to "Eliminar", user_ticket_path(ticket), method: :delete, class: "btn btn-danger"%></td>
+      </tr>
+    <%end%>
+  </table>
+  <%=link_to "Nuevo", new_user_ticket_path, class: "btn btn-primary"%>
+</div>
