@@ -1,0 +1,27 @@
+<%= form_for [:admin,@ticket] do |f| %>
+  <table class="table">
+
+      <tr>
+          <th>Titulo</th><td><%= @ticket.title %></td>
+      </tr>
+      <tr>
+          <th>Descripcion</th><td><%= @ticket.description %></td>
+      </tr>
+      <tr>
+         <th>Creador</th><td><%= @ticket.status %></td>
+      </tr>
+      <% if @ticket.unassigned? %>
+        <tr>
+          <th>Asignar</th><td><%=f.select :user_assigned, User.all.map{|user| [user.name,user.id]}%></td>
+        </tr>
+        <tr>
+          <td colspan="2"><%= f.submit "Asignar", class: "btn btn-primary " %></td>
+        </tr>
+      <% else %>
+        <tr>
+          <th>Tomado Por</th><td><%= User.find(@ticket.user_assigned).name %></td>
+        </tr>
+      <% end %>
+
+  </table>
+<% end %>
