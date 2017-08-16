@@ -3,13 +3,16 @@
 <%@tickets.each do |ticket|%>
   <table class="table">
     <tr>
-      <th>Titulo</th><td><%=link_to ticket.title, ticket_path(ticket)%></td>
+      <th>Titulo</th><td><%=link_to ticket.title, edit_admin_ticket_path(ticket)%></td>
     </tr>
     <tr>
       <th>Estado</th><td><%=status_name ticket.status%></td>
     </tr>
     <tr>
       <th>Creador</th><td><%=ticket.user.name%></td>
+    </tr>
+    <tr>
+      <th>Tomado por</th><td><%= ticket.assigned_user_name %></td>
     </tr>
     <tr>
       <td></td><td><%=link_to "Eliminar", admin_ticket_path(ticket), method: :delete, class: "btn btn-danger"%></td>

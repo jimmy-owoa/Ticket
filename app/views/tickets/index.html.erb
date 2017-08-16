@@ -12,6 +12,9 @@
       <th>Creador</th><td> <img src="<%= ticket.user.avatar.url :thumb %>" width="30"> <%=ticket.user.name%></td>
     </tr>
     <tr>
+      <th>Tomado por</th><td><%= ticket.assigned_user_name  %></td>
+    </tr>
+    <tr>
 
     </tr>
   </table>
