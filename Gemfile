@@ -5,8 +5,12 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
+
 gem 'devise'
+
 gem 'cancancan', '~> 2.0'
+
+gem "paperclip", "~> 5.0.0"
 
 gem "twitter-bootstrap-rails"
 # Use SCSS for stylesheets

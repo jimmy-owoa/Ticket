@@ -9,7 +9,7 @@
       <th>Estado</th><td><%=status_name ticket.status%></td>
     </tr>
     <tr>
-      <th>Creador</th><td><%=ticket.user.name%></td>
+      <th>Creador</th><td> <img src="<%= ticket.user.avatar.url :thumb %>" width="30"> <%=ticket.user.name%></td>
     </tr>
     <tr>
 

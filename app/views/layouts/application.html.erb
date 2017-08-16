@@ -59,6 +59,14 @@
               <li><%=link_to "Registrarme", new_user_registration_path%></li>
             <%end%>
           </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <%= link_to edit_user_user_path(current_user) do %>
+                <img src="<%= current_user.avatar.url :thumb %>" width="30" alt="">
+                <%= current_user.name %>
+              <% end %>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

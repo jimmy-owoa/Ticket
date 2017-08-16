@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         post :finish
       end
     end
+    resources :users, only:[:edit,:update,:show]
   end
 
   get "/user", to: "user/tickets#index"

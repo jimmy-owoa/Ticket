@@ -1,0 +1,22 @@
+<div class="col-lg-9">
+  <table class="table">
+    <tr>
+      <tr>
+        <td rowspan="2">
+          <img src="<%= current_user.avatar.url :thumb %>" alt=""><br>
+          <%= form_for [:user,@user] do |f| %>
+            <%= f.file_field :avatar %>
+            <%= f.submit "Aceptar",class: "btn btn-primary" %>
+          <% end %>
+        </td>
+        <td><font size="6"><%= current_user.name %></font></td>
+      </tr>
+      <tr>
+        <td><font size="6"><%= current_user.email%></font></td>
+      </tr>
+    </tr>
+    <tr>
+
+    </tr>
+  </table>
+</div>
