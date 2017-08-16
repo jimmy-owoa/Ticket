@@ -10,7 +10,7 @@
         <td><%=status_name(ticket.status)%></td>
         <td><%=ticket.created_at%></td>
         <%unless ticket.finished?%>
-          <td><%=button_to "Finalizar", finish_user_ticket_path(ticket), class: "btn btn-warning"%></td>
+          <td><%=button_to "Finalizar", finish_user_ticket_path(ticket),method: :put, class: "btn btn-warning"%></td>
         <%end%>
         <td><%=link_to "Eliminar", user_ticket_path(ticket), method: :delete, class: "btn btn-danger"%></td>
       </tr>

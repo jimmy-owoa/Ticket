@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   namespace (:user) do
     resources :tickets do
       member do
-        post :finish
+        put :finish
       end
     end
     resources :users, only:[:edit,:update,:show]
