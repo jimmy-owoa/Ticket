@@ -6,7 +6,7 @@
       <th>Titulo</th><td><%=link_to ticket.title, edit_admin_ticket_path(ticket)%></td>
     </tr>
     <tr>
-      <th>Estado</th><td><%=status_name ticket.status%></td>
+      <th>Estado</th><td><%= t "status.#{ticket.status}" %></td>
     </tr>
     <tr>
       <th>Creador</th><td><%=ticket.user.name%></td>

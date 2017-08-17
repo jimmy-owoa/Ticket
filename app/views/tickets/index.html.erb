@@ -1,5 +1,9 @@
 <h1>Todos los Tickets</h1>
-
+<%=form_tag "/", method: "get" do%>
+  <%= label_tag "filtro" %>
+  <%= select_tag "filtro", options_for_select([["Sin Asignar",0],["Asignado",1],["Finalizado",2]]) %>
+  <%= button_tag "Filtrar"%>
+<%end%>
 <%@tickets.each do |ticket|%>
   <table class="table">
     <tr>
