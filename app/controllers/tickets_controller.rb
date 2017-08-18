@@ -1,6 +1,10 @@
 class TicketsController < ApplicationController
   def index
+
+    filt = params[:filtro]
     @tickets = Ticket.all
+    @tickets = Ticket.all.where(status: filt) if filt
+    #binding.pry
   end
 
   def new
