@@ -1,9 +1,9 @@
 class TicketsController < ApplicationController
   def index
 
-    filt = params[:filtro]
     @tickets = Ticket.all
-    @tickets = Ticket.all.where(status: filt) if filt
+    @tickets = @tickets.where(status: params[:f_estado]) unless params[:f_estado].blank?
+    @tickets = @tickets.where(user_id: params[:f_usuario]) unless params[:f_usuario].blank?
     #binding.pry
   end
 

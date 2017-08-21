@@ -1,9 +1,24 @@
 <h1>Todos los Tickets</h1>
-<%=form_tag "/", method: "get" do%>
-  <%= label_tag "filtro" %>
-  <%= select_tag "filtro", options_for_select([["Sin Asignar",0],["Asignado",1],["Finalizado",2]]) %>
-  <%= button_tag "Filtrar"%>
-<%end%>
+<table>
+  <tr>
+    <th colspan="4" valign="middle">Filtros</th>
+  </tr>
+  <tr>
+    <%= form_tag "/", method: "get" do %>
+      <td><%= label_tag "Estado" %></td>
+      <td>
+        <%= select_tag "f_estado", options_for_select(Ticket.statuses.map { |k,v| [t("status.#{k}"),v]  }, params[:f_estado]), include_blank: true %>
+        &nbsp;&nbsp;
+      </td>
+      <td> <%= label_tag "Usuario" %> </td>
+      <td>
+        <%= select_tag "f_usuario", options_for_select(User.all.map { |u| [u.name, u.id] }, params[:f_usuario]) , include_blank: true%>
+        &nbsp;&nbsp;
+      </td>
+      <td> <%= button_tag "Filtrar" %> </td>
+    <% end %>
+  </tr>
+</table>
 <%@tickets.each do |ticket|%>
   <table class="table">
     <tr>
